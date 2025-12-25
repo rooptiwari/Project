@@ -91,6 +91,11 @@
                 radial-gradient(circle at 70% 80%, rgba(91, 163, 245, 0.15) 0%, transparent 50%);
 }
 
+[data-theme="dark"] .hero::after {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><filter id="glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="100" cy="100" r="85" fill="none" stroke="rgba(244,201,122,0.15)" stroke-width="1.5"/><circle cx="100" cy="100" r="65" fill="none" stroke="rgba(244,201,122,0.12)" stroke-width="1.2"/><circle cx="100" cy="100" r="45" fill="none" stroke="rgba(244,201,122,0.1)" stroke-width="1"/><g stroke="rgba(244,201,122,0.18)" stroke-width="1.8" fill="none" stroke-linecap="round"><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100"/><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100" transform="rotate(45 100 100)"/><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100" transform="rotate(22.5 100 100)"/><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100" transform="rotate(67.5 100 100)"/><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100" transform="rotate(11.25 100 100)"/><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100" transform="rotate(33.75 100 100)"/><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100" transform="rotate(56.25 100 100)"/><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100" transform="rotate(78.75 100 100)"/></g><circle cx="100" cy="100" r="12" fill="rgba(244,201,122,0.18)"/></svg>');
+    opacity: 0.18;
+}
+
 [data-theme="dark"] .hero-name {
     color: #ffffff;
     text-shadow: 0 0 20px rgba(244, 201, 122, 0.5),
@@ -222,12 +227,65 @@
     border-top: 1px solid var(--border-color);
     position: relative;
     z-index: 1;
+    color: #ffffff !important; /* Keep all text white in dark mode */
 }
 
 [data-theme="dark"] .footer-section h3,
 [data-theme="dark"] .footer-section h4 {
-    color: #f4c97a;
+    color: #f4c97a !important;
     text-shadow: 0 0 10px rgba(244, 201, 122, 0.3);
+}
+
+[data-theme="dark"] .footer-section p {
+    color: #ffffff !important;
+    opacity: 0.9;
+}
+
+[data-theme="dark"] .footer-section ul li {
+    color: #ffffff !important;
+    opacity: 0.9;
+}
+
+[data-theme="dark"] .footer-section ul li a {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .footer-section ul li a:hover {
+    color: #f4c97a !important;
+}
+
+[data-theme="dark"] .footer-section address {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .footer-section address p {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .footer-section address a {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .footer-section address a:hover {
+    color: #f4c97a !important;
+}
+
+[data-theme="dark"] .footer-advocate-title {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="dark"] .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .footer-bottom p {
+    color: #ffffff !important;
+    opacity: 0.9;
+}
+
+[data-theme="dark"] .footer-disclaimer {
+    color: rgba(255, 255, 255, 0.7) !important;
+    opacity: 0.7;
 }
 
 [data-theme="dark"] .service-card,
@@ -509,9 +567,28 @@ body {
     pointer-events: none;
 }
 
+/* National Emblem Background - Ashoka Chakra */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 450px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><filter id="glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="100" cy="100" r="85" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/><circle cx="100" cy="100" r="65" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.2"/><circle cx="100" cy="100" r="45" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/><g stroke="rgba(255,255,255,0.12)" stroke-width="1.8" fill="none" stroke-linecap="round"><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100"/><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100" transform="rotate(45 100 100)"/><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100" transform="rotate(22.5 100 100)"/><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100" transform="rotate(67.5 100 100)"/><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100" transform="rotate(11.25 100 100)"/><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100" transform="rotate(33.75 100 100)"/><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100" transform="rotate(56.25 100 100)"/><path d="M100 15 L100 35 M100 165 L100 185 M15 100 L35 100 M165 100 L185 100" transform="rotate(78.75 100 100)"/></g><circle cx="100" cy="100" r="12" fill="rgba(255,255,255,0.12)"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.12;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 900px;
     margin: 0 auto;
 }
@@ -1217,6 +1294,12 @@ section {
         margin-top: -70px;
     }
 
+    .hero::after {
+        width: 300px;
+        height: 300px;
+        opacity: 0.1;
+    }
+
     .hero-name {
         font-size: 2.5rem;
     }
@@ -1286,6 +1369,12 @@ section {
         padding-top: 120px; /* Account for fixed navbar */
         min-height: 500px;
         margin-top: -70px;
+    }
+
+    .hero::after {
+        width: 250px;
+        height: 250px;
+        opacity: 0.08;
     }
 
     .hero-name {
