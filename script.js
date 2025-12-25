@@ -1,3 +1,137 @@
+// Theme Toggle Functionality (Dark Mode / Light Mode)
+(function() {
+    'use strict';
+    
+    let isInitialized = false;
+    
+    function applyTheme(theme) {
+        const html = document.documentElement;
+        if (!html) return;
+        
+        html.setAttribute('data-theme', theme);
+        
+        try {
+            localStorage.setItem('theme', theme);
+        } catch (e) {
+            console.warn('Could not save theme:', e);
+        }
+        
+        // Update icon
+        const icon = document.getElementById('themeIcon');
+        if (icon) {
+            icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+        
+        // Update button
+        const btn = document.getElementById('themeToggle');
+        if (btn) {
+            btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+            btn.setAttribute('title', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+        
+        console.log('✅ Theme applied:', theme);
+    }
+    
+    function toggleTheme(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme') || 'light';
+        const newTheme = current === 'dark' ? 'light' : 'dark';
+        
+        console.log('🔄 Toggling theme from', current, 'to', newTheme);
+        applyTheme(newTheme);
+    }
+    
+    function setupThemeToggle() {
+        const btn = document.getElementById('themeToggle');
+        
+        if (!btn) {
+            console.error('❌ Theme toggle button not found!');
+            return false;
+        }
+        
+        console.log('✅ Theme toggle button found');
+        
+        // Remove all existing event listeners by replacing the button
+        const parent = btn.parentNode;
+        const newBtn = btn.cloneNode(true);
+        parent.replaceChild(newBtn, btn);
+        
+        // Get the new button reference
+        const newToggleBtn = document.getElementById('themeToggle');
+        if (!newToggleBtn) {
+            console.error('❌ Could not get new button reference');
+            return false;
+        }
+        
+        // Add click event listener
+        newToggleBtn.addEventListener('click', toggleTheme, true);
+        
+        // Also handle clicks on the icon span
+        const iconSpan = document.getElementById('themeIcon');
+        if (iconSpan) {
+            iconSpan.style.pointerEvents = 'none'; // Let clicks pass through to button
+        }
+        
+        // Direct onclick as well
+        newToggleBtn.onclick = toggleTheme;
+        
+        console.log('✅ Event listeners attached');
+        return true;
+    }
+    
+    function initTheme() {
+        if (isInitialized) {
+            console.log('⚠️ Theme already initialized');
+            return;
+        }
+        
+        // Get stored theme
+        let savedTheme = 'light';
+        try {
+            savedTheme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+            savedTheme = 'light';
+        }
+        
+        console.log('🎨 Initializing theme:', savedTheme);
+        
+        // Apply saved theme
+        applyTheme(savedTheme);
+        
+        // Set up click handler
+        const success = setupThemeToggle();
+        
+        if (success) {
+            isInitialized = true;
+        }
+    }
+    
+    // Multiple initialization attempts
+    function tryInit() {
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            initTheme();
+        } else {
+            document.addEventListener('DOMContentLoaded', initTheme);
+        }
+    }
+    
+    // Try immediately
+    tryInit();
+    
+    // Also try after a short delay
+    setTimeout(tryInit, 100);
+    
+    // Expose globally for testing
+    window.toggleTheme = toggleTheme;
+    window.applyTheme = applyTheme;
+    window.initTheme = initTheme;
+})();
+
 // Mobile Navigation Toggle
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
