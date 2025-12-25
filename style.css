@@ -130,6 +130,35 @@
     text-shadow: 0 0 10px rgba(244, 201, 122, 0.3);
 }
 
+[data-theme="dark"] .btn-secondary {
+    background: rgba(244, 201, 122, 0.15);
+    backdrop-filter: blur(10px);
+    color: #f4c97a;
+    border: 2px solid rgba(244, 201, 122, 0.5);
+    box-shadow: 0 2px 15px rgba(244, 201, 122, 0.2),
+                0 0 20px rgba(91, 163, 245, 0.1);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background: rgba(244, 201, 122, 0.9);
+    color: #0a0e13;
+    border-color: rgba(244, 201, 122, 1);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(244, 201, 122, 0.5),
+                0 0 40px rgba(244, 201, 122, 0.3),
+                0 0 60px rgba(91, 163, 245, 0.2);
+}
+
+[data-theme="dark"] .btn-primary {
+    box-shadow: 0 4px 20px rgba(244, 201, 122, 0.4),
+                0 0 30px rgba(244, 201, 122, 0.2);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    box-shadow: 0 8px 30px rgba(244, 201, 122, 0.6),
+                0 0 40px rgba(244, 201, 122, 0.4);
+}
+
 [data-theme="dark"] .hero-stat .stat-number {
     color: #f4c97a;
     text-shadow: 0 0 15px rgba(244, 201, 122, 0.4);
@@ -551,19 +580,26 @@ body {
 }
 
 .btn-secondary {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
     color: var(--white);
-    border: 2px solid var(--white);
+    border: 2px solid rgba(255, 255, 255, 0.5);
     padding: 14px 38px;
     font-size: 1.1rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary:hover {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.95);
     color: var(--primary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 1);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4),
+                0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 .hero-stats {
@@ -1202,6 +1238,7 @@ section {
     .btn-secondary {
         width: 100%;
         max-width: 300px;
+        padding: 14px 30px;
     }
 
     .hero-stats {
