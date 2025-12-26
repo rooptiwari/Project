@@ -1516,6 +1516,8 @@ section {
         position: relative;
         aspect-ratio: auto; /* Remove fixed aspect ratio for mobile */
         min-height: 500px;
+        border-radius: 20px; /* Ensure all corners are rounded */
+        overflow: hidden; /* Important for rounded corners */
     }
 
     .hero-image {
@@ -1525,6 +1527,7 @@ section {
         object-fit: contain; /* Show full image without cropping */
         object-position: center center;
         min-height: 500px;
+        border-radius: 20px 20px 0 0; /* Top corners rounded, bottom will be covered by note */
     }
 
     .hero-image-note {
@@ -1692,6 +1695,8 @@ section {
         position: relative;
         aspect-ratio: auto; /* Remove fixed aspect ratio */
         min-height: 450px;
+        border-radius: 20px; /* Ensure all corners are rounded */
+        overflow: hidden; /* Important for rounded corners */
     }
 
     .hero-image {
@@ -1701,6 +1706,7 @@ section {
         object-fit: contain; /* Show full image without cropping */
         object-position: center center;
         min-height: 450px;
+        border-radius: 20px 20px 0 0; /* Top corners rounded, bottom will be covered by note */
     }
 
     .hero-image-note {
